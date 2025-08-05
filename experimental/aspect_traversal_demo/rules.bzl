@@ -29,6 +29,7 @@ def _package_metadata_impl(ctx):
         PackageMetadataInfo(
             metadata = metadata,
             files = [a.files for a in attributes],
+            package_attributes = depset(attributes),
         ),
     ]
 
@@ -101,7 +102,6 @@ def _license_impl(ctx):
             files = files,
         ),
     ]
-
 
 
 _license = rule(

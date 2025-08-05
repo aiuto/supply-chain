@@ -3,7 +3,7 @@ visibility("public")
 
 def _init_pai(kind, attributes, files = []):
     return {
-	"id": "PackageAttibuteInfo",
+        "id": "PackageAttibuteInfo",
         "attributes": attributes,
         "files": depset(
             direct = [
@@ -17,7 +17,7 @@ def _init_pai(kind, attributes, files = []):
 PackageAttributeInfo, _create_pai = provider(
     doc = """innner rule.""",
     fields = {
-	"id": """The constant PackageAttibuteInfo""",
+        "id": """The constant PackageAttibuteInfo""",
         "attributes": """dict of data""",
         "files": """files of the json dump of the data""",
         "kind": """The identifier of the attribute.""",
@@ -25,9 +25,9 @@ PackageAttributeInfo, _create_pai = provider(
     init = _init_pai,
 )
 
-def _init_pmi(metadata, files = []):
+def _init_pmi(metadata, files = [], package_attributes = None):
     return {
-	"id": "PackageMetadataInfo",
+         "id": "PackageMetadataInfo",
         "files": depset(
             direct = [
                 metadata,
@@ -35,14 +35,16 @@ def _init_pmi(metadata, files = []):
             transitive = files,
         ),
         "metadata": metadata,
+        "package_attributes": package_attributes,
     }
 
 PackageMetadataInfo, _create_pmi = provider(
     doc = """Outer rule.""",
     fields = {
-	"id": """The constant PackageMetadataInfo""",
+       "id": """The constant PackageMetadataInfo""",
         "files": """collection of files from PackageAttributeInfo""",
         "metadata": """more""",
+        "package_attributes": """depset(PackageAttributeInfo)""",
     },
     init = _init_pmi,
 )
