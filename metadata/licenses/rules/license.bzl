@@ -39,8 +39,9 @@ def _license_impl(ctx):
             data = output,
             files = files,
         ),
-        # TODO(aiuto): There should be a LicenseInfo provider that combines
-        # kind, text file path, and copyright text.
+        # TODO(https://github.com/bazel-contrib/supply-chain/issues/94)
+        # There should be a LicenseInfo provider that combines kind,
+        # text file path, and copyright text.
         license_kind,
     ]
 
