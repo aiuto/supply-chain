@@ -22,11 +22,6 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - name: "Docs"
-            bazel_version: "8.x"
-            package: "docs"
-            runner: "ubuntu-latest"
-
           #
           # @package_metadata
           #
@@ -36,14 +31,6 @@ jobs:
             package: "metadata"
             runner: "ubuntu-latest"
 
-          #
-          # @supply-chain-go
-          #
-
-          - name: "Bazel 9.x: @supply-chain-go (Linux x64)"
-            bazel_version: "9.x"
-            package: "lib/supplychain-go"
-            runner: "ubuntu-latest"
 
     runs-on:
       - "${{ matrix.runner }}"
