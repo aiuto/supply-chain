@@ -342,7 +342,7 @@ jobs:
         tag: ${{ inputs.tag_name }}
         module-version: ${{ env.VERSION }}
         local-registry: bazel-central-registry
-        templates-dir: this/.bcr
+        templates-dir: this/.bcr/${{ inputs.module_name }}
         local-artifact-path: |
           attestations
           local_artifacts/release_files
